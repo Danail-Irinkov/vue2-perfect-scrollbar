@@ -29,7 +29,6 @@ var PerfectScrollbar$1 = {
     if (!(this.ps && this.$isServer)) {
       this.ps = new PerfectScrollbar(this.$refs.container, this.options);
     }
-    console.log('mounted PS');
     window.EventBus.$on('update_perfect_scrollbar', (vm = this) => { vm.update(); });
   },
   updated () {
@@ -40,7 +39,6 @@ var PerfectScrollbar$1 = {
   },
   methods: {
     update () {
-      console.log('updated PS');
       if (this.ps) {
         this.ps.update();
       }
@@ -86,7 +84,7 @@ function install (Vue, settings) {
 }
 
 function update () {
-  PerfectScrollbar$1.updated();
+  PerfectScrollbar$1.update();
 }
 var index = {
   install: install,

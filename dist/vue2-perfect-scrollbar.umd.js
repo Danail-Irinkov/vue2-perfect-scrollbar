@@ -1344,7 +1344,6 @@
       if (!(this.ps && this.$isServer)) {
         this.ps = new PerfectScrollbar(this.$refs.container, this.options);
       }
-      console.log('mounted PS');
       window.EventBus.$on('update_perfect_scrollbar', function (vm) {
       if ( vm === void 0 ) vm = this$1;
    vm.update(); });
@@ -1357,7 +1356,6 @@
     },
     methods: {
       update: function update () {
-        console.log('updated PS');
         if (this.ps) {
           this.ps.update();
         }
@@ -1403,7 +1401,7 @@
   }
 
   function update () {
-    PerfectScrollbar$1.updated();
+    PerfectScrollbar$1.update();
   }
   var index = {
     install: install,
