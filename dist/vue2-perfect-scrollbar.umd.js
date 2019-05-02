@@ -1345,7 +1345,9 @@
         this.ps = new PerfectScrollbar(this.$refs.container, this.options);
       }
       console.log('mounted PS');
-      window.EventBus.$on('update_perfect_scrollbar', function (){this$1.update();});
+      window.EventBus.$on('update_perfect_scrollbar', function (vm) {
+      if ( vm === void 0 ) vm = this$1;
+   vm.update(); });
     },
     updated: function updated () {
       this.update();

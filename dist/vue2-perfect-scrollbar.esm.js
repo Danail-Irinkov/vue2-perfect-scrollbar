@@ -24,7 +24,7 @@ var PerfectScrollbar$1 = {
       this.ps = new PerfectScrollbar(this.$refs.container, this.options);
     }
     console.log('mounted PS');
-    window.EventBus.$on('update_perfect_scrollbar', ()=>{this.update();});
+    window.EventBus.$on('update_perfect_scrollbar', (vm = this) => { vm.update(); });
   },
   updated () {
     this.update();
