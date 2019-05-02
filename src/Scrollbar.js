@@ -22,6 +22,7 @@ export default {
     if (!(this.ps && this.$isServer)) {
       this.ps = new PerfectScrollbar(this.$refs.container, this.options)
     }
+    EventBus.$on('update_perfect_scrollbar', ()=>{this.update()})
   },
   updated () {
     this.update()
