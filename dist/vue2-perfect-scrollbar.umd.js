@@ -1339,9 +1339,13 @@
       }
     },
     mounted: function mounted () {
+      var this$1 = this;
+
       if (!(this.ps && this.$isServer)) {
         this.ps = new PerfectScrollbar(this.$refs.container, this.options);
       }
+      console.log('mounted PS');
+      window.EventBus.$on('update_perfect_scrollbar', function (){this$1.update();});
     },
     updated: function updated () {
       this.update();
@@ -1351,6 +1355,7 @@
     },
     methods: {
       update: function update () {
+        console.log('updated PS');
         if (this.ps) {
           this.ps.update();
         }
@@ -1395,9 +1400,18 @@
     );
   }
 
+  function update () {
+    PerfectScrollbar$1.updated();
+  }
+  var index = {
+    install: install,
+    update: update
+  };
+
   exports.install = install;
+  exports.update = update;
   exports.PerfectScrollbar = PerfectScrollbar$1;
-  exports.default = install;
+  exports.default = index;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
