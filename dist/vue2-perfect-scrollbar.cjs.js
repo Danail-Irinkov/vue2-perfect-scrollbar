@@ -29,6 +29,7 @@ var PerfectScrollbar$1 = {
     if (!(this.ps && this.$isServer)) {
       this.ps = new PerfectScrollbar(this.$refs.container, this.options);
     }
+    // Added by Dan Irinko to allow for force update the wrapper.
     window.EventBus.$on('update_perfect_scrollbar', (vm = this) => { vm.update(); });
   },
   updated () {
@@ -83,15 +84,6 @@ function install (Vue, settings) {
   );
 }
 
-function update () {
-  PerfectScrollbar$1.update();
-}
-var index = {
-  install: install,
-  update: update
-};
-
 exports.install = install;
-exports.update = update;
 exports.PerfectScrollbar = PerfectScrollbar$1;
-exports.default = index;
+exports.default = install;

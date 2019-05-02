@@ -22,6 +22,7 @@ export default {
     if (!(this.ps && this.$isServer)) {
       this.ps = new PerfectScrollbar(this.$refs.container, this.options)
     }
+    // Added by Dan Irinko to allow for force update the wrapper.
     window.EventBus.$on('update_perfect_scrollbar', (vm = this) => { vm.update() })
   },
   updated () {
