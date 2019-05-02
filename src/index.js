@@ -32,4 +32,3 @@ export default {
   install: install,
   update: update
 }
-export class PerfectScrollbar extends PerfectScrollbar {}
