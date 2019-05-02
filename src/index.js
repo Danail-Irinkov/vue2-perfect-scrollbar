@@ -23,5 +23,13 @@ export function install (Vue, settings) {
   )
 }
 
+export function update () {
+  PerfectScrollbar.updated()
+}
+
 export { PerfectScrollbar }
-export default install
+export default {
+  install: install,
+  update: update
+}
+export class PerfectScrollbar extends PerfectScrollbar {}
